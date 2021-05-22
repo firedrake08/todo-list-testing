@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'todo-list-filter';
+  name = 'Angular';
+  taskstatus = "all";
+  tasks = [];
+
+  addTask(task) {
+    var taskObj = { "text": task, "status": false };
+    this.tasks.push(taskObj)
+  }
+  deleteTask(index) {
+    this.tasks.splice(index, 1);
+  }
+  doneTask(index) {
+    this.tasks[index].status = true;
+  }
+  undoTask(index) {
+    this.tasks[index].status = false;
+  }
 }
